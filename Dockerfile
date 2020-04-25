@@ -9,4 +9,4 @@ RUN apk update && apk upgrade && \
 RUN go mod download
 
 RUN go build -o bin/workshop cmd/workshop/main.go
-ENTRYPOINT ("bin/workshop")
+ENTRYPOINT ["bin/workshop"]
