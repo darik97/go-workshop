@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
 
@@ -13,6 +14,8 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	cfg := config.Server{}
 	err := cleanenv.ReadConfig("config.yml", &cfg)
 	if err != nil {

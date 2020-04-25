@@ -27,14 +27,14 @@ jobs:
         run: go mod tidy && go test ./...
 
       # to run next test, need token from codecov, save it to github secrets, use it here
-      # - name: Run test with coverage
-      #   run: go mod tidy && go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+      - name: Run test with coverage
+        run: go mod tidy && go test -race -coverprofile=coverage.txt -covermode=atomic ./...
 
-      - name: Upload Coverage report to CodeCov
-        uses: codecov/codecov-action@v1.0.0
-        with:
-          file: ./coverage.txt
-          fail_ci_if_error: false
+      # - name: Upload Coverage report to CodeCov
+      #   uses: codecov/codecov-action@v1.0.0
+      #   with:
+      #     file: ./coverage.txt
+      #     fail_ci_if_error: false
 
   deploy:
     name: Deploy on Heroku
