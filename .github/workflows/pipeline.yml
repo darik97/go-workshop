@@ -23,11 +23,12 @@ jobs:
         with:
           go-version: 1.13
 
-      - name: Run test with coverage
+      - name: Run test
         run: go mod tidy && go test ./...
 
-      - name: Run test with coverage
-        run: go mod tidy && go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+      # to run next test, need token from codecov, save it to github secrets, use it here
+      # - name: Run test with coverage
+      #   run: go mod tidy && go test -race -coverprofile=coverage.txt -covermode=atomic ./...
 
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v1.0.0
